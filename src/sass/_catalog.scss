@@ -55,6 +55,7 @@
   align-items: center;
   transform: rotateY(90deg);
   width: 100%;
+  margin-left: auto;
 }
 
 .front {
@@ -64,6 +65,16 @@
   position: absolute;
   width: 100%;
   padding: 43px 30px;
+}
+
+.front > svg {
+  position: fixed;
+  top: 14;
+  right: 14;
+  z-index: 999;
+  stroke: var(--black-color);
+  stroke-opacity: 0.1;
+  display: none;
 }
 
 .flip-container:hover .front,
@@ -358,6 +369,10 @@
     width: calc((100% - 32px) / 2);
   }
 
+  .front > svg {
+    display: initial;
+  }
+
   .modal {
     overflow: initial;
     min-width: 670px;
@@ -423,5 +438,9 @@
 
   .catalog-cards-list-item-image-details {
     padding: 20px;
+  }
+
+  .front > svg {
+    display: none;
   }
 }
