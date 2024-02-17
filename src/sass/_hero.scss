@@ -99,12 +99,41 @@
   align-items: center;
   gap: 6px;
   color: var(--white-color);
-  width: 74px;
+  /* width: 74px; */
+  position: relative;
 }
 
-.hero-carousel-image-card-buttons-numbers > svg {
+.hero-carousel-numbers-iteration {
+  position: absolute;
+  overflow: hidden;
+
+  width: fit-content;
+  height: 100%;
+}
+
+.hero-carousel-numbers-iteration-span {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  transition: transform, 500ms, ease-in-out;
+}
+
+.hero-carousel-svg-and-span {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 73px;
+  gap: 8px;
+}
+
+.hero-carousel-image-card-buttons-numbers-svg {
   stroke: var(--white-color);
   height: 1px;
+}
+
+.hero-carousel-svg-and-span-five {
+  position: absolute;
 }
 
 .hero-main-image {
