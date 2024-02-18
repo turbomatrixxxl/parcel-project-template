@@ -10,6 +10,7 @@
 }
 
 .hero-description {
+  margin-top: 40px;
   max-width: 248px;
 
   color: var(--white-color);
@@ -27,42 +28,95 @@
   margin-bottom: 40px;
 }
 
-.hero-carousel-and-buttons-container {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.hero-carousel-image-cards {
-  display: flex;
-  flex-direction: column;
-  /* justify-content: center; */
-  align-items: center;
+.card-carousel {
   overflow: hidden;
-  max-width: 436px;
-  height: 200px;
-  padding: 5px 20px;
-  background: var(--dark-green-color);
+
+  position: relative;
+  margin: 0 auto 0 auto;
+  padding: 0;
+  width: 266px;
+  height: 252px;
+  perspective: 2000px;
+  perspective-origin: top;
+
+  /* background-color: var(--dark-green-color); */
 }
 
-.hero-carousel-image {
-  width: 226px;
-  height: 180px;
+/* .button-spin.counterclockwise {
+  right: 0;
+}
+.button-spin.clockwise {
+  left: 0;
+} */
+.card-carousel .inner-carousel {
+  background-color: var(--dark-green-color);
+
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  top: 0;
+  transform-style: preserve-3d;
+}
+.card-carousel .inner-carousel > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  margin: 0 auto;
+  padding: 5px 20px;
+  width: 266px;
+  height: 200px;
+  opacity: 1;
+  background-color: var(--dark-green-color);
+
+  transition: all 0.5s ease-out;
+  z-index: 1;
+}
+.card-carousel .inner-carousel > div:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  background-color: var(--dark-green-color);
+  z-index: 1;
+}
+.card-carousel .inner-carousel > div.counterclockwise:after,
+.card-carousel .inner-carousel > div.clockwise:after {
+  opacity: 0.4;
+  cursor: pointer;
+}
+.card-carousel .inner-carousel > div.front:after {
+  content: none;
+}
+.card-carousel .inner-carousel > div.front {
+  background-color: var(--dark-green-color);
+}
+
+.card-carousel .inner-carousel > div.counterclockwise:after,
+.card-carousel .inner-carousel > div.clockwise:after {
+  opacity: 0.4;
+  cursor: pointer;
+}
+
+.card-carousel .inner-carousel > div.front:after {
+  content: none;
 }
 
 .carousel-image-card-presentation {
+  width: 100%;
+  position: absolute;
+  top: calc(100% - 32px);
   max-width: 436px;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 40px;
 }
 
-.hero-carousel-image-card-buttons {
-  display: flex;
-  gap: 12px;
-}
-
-.hero-carousel-image-card-button {
+.button-spin {
+  /* position: absolute;
+  top: 70%; */
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -77,8 +131,16 @@
   cursor: pointer;
 }
 
-.hero-carousel-image-card-button:hover,
-.hero-carousel-image-card-button:focus {
+.left {
+  margin-right: 12px;
+}
+
+.right {
+  margin-right: auto;
+}
+
+.button-spin:hover,
+.button-spin:focus {
   border-color: var(--white-color);
 }
 
@@ -99,7 +161,7 @@
   align-items: center;
   gap: 6px;
   color: var(--white-color);
-  /* width: 74px; */
+  width: 74px;
   position: relative;
 }
 
@@ -136,6 +198,11 @@
   position: absolute;
 }
 
+/* .hero-carousel-image {
+  width: 226px;
+  height: 180px;
+} */
+
 .hero-main-image {
   width: 100%;
   margin: 0 auto;
@@ -159,10 +226,44 @@
     justify-content: space-between;
   }
 
-  .hero-carousel-image-cards {
+  .card-carousel {
+    overflow: hidden;
+
+    position: relative;
+    margin: 0 auto 0 auto;
+    padding: 0;
+    width: 436px;
+    height: 315px;
+    perspective: 2000px;
+    perspective-origin: top;
+
+    /* background-color: var(--dark-green-color); */
+  }
+
+  .card-carousel .inner-carousel > div {
     width: 436px;
     height: 255px;
     padding: 11px 44px;
+  }
+
+  .button-spin {
+    width: 40px;
+    height: 40px;
+  }
+
+  .carousel-image-card-presentation {
+    width: 100%;
+    position: absolute;
+    top: calc(100% - 40px);
+    max-width: 436px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+
+  .hero-carousel-image-card-button-svg {
+    width: 24px;
+    height: 24px;
   }
 
   .hero-description {
@@ -171,12 +272,14 @@
     align-self: center;
     margin-left: 20px;
     margin-bottom: 97px;
+    margin-top: 0;
   }
 
   .hero-main-image {
     width: 100%;
     height: 410px;
     flex-shrink: 0;
+    margin-top: 40px;
   }
 }
 
