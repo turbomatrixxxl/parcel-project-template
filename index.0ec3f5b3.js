@@ -1,0 +1,2 @@
+var translate=0,onNext=function(){var t=document.querySelectorAll("[data-carousel-item]");translate<t.length-1&&(translate+=1,percentage=-100*translate,t.forEach((function(t){t.style.transform="translateY(".concat(percentage,"%)")})))},onBack=function(){var t=document.querySelectorAll("[data-carousel-item]");translate>0&&(translate-=1,percentage=-100*translate,t.forEach((function(t){t.style.transform="translateY(".concat(percentage,"%)")})))};
+//# sourceMappingURL=index.0ec3f5b3.js.map
